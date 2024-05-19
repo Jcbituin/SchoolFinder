@@ -2,7 +2,7 @@ from PIL import Image
 import streamlit as st
 
 # ---- LOAD ASSETS ----
-image1 = Image.open("image/GG.png")
+image1 = Image.open("image/A.png")
 
 st.title("SCHOOL FINDER HUB")
 
