@@ -8,6 +8,7 @@ image2 = Image.open("image/F.png")
 st.title("NORTHEASTERN MINDANAO COLLEGES")
 
 with st.container():
+    st.write("---")
     image_column, text_column = st.columns((1, 2))
     with image_column:
         st.image(image1)
