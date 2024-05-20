@@ -55,7 +55,7 @@ with st.container():
 with st.container():
     st.write("---")
     with text_column:
-        st.subheader("COURSES OFFERED")
+        st.subheader("PROGRAMS OFFERED")
         st.write(
             """
             - Bachelor of Secondary Education Major in English
