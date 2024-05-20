@@ -29,6 +29,6 @@ with st.container():
         st.write("##")
         st.write(
             """
-           
+            To provide quality and inclusive education: establish industry and business innovation infrastructures; develop environmental initiatives; promote peace, justice and transformative leadership: and build strong and dynamic partnership with stakeholders.
             """
             )
