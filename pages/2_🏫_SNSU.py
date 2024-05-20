@@ -26,9 +26,36 @@ with st.container():
         st.image(image2)
     with text_column:
         st.subheader("MISSION")
-        st.write("##")
         st.write(
             """
             To provide quality and inclusive education: establish industry and business innovation infrastructures; develop environmental initiatives; promote peace, justice and transformative leadership: and build strong and dynamic partnership with stakeholders.
             """
             )
+with st.container():
+    with text_column:
+        st.subheader("VISION")
+        st.write(
+            """
+            A Leading Industry-Driven State University.
+            """
+        )
+with st.container():
+    with text_column:
+        st.subheader("CORE VALUES")
+        st.write(
+            """
+            Integrity, Respect, and Competence
+            """
+        )
+with st.container():
+    st.write("---")
+    with text_column:
+        st.subheader("QUALITY POLICY")
+        st.write(
+            """
+            Surigao del Norte State University provides quality instruction, research, extention programs, and production services to satisfy its customers by responding to their needs and expectations and continually improving its quality management system.
+            """
+        )
+
+
+
