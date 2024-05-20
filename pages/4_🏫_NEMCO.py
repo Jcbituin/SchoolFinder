@@ -53,6 +53,7 @@ with st.container():
             """
         )
 with st.container():
+    st.write("---")
     with text_column:
         st.subheader("COURSES OFFERED")
         st.write(
