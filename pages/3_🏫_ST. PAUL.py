@@ -65,7 +65,7 @@ with st.container():
 with st.container():
     st.write("---")
     with text_column:
-        st.subheader("PROGRAM AND COURSES")
+        st.subheader("PROGRAM AND COURSES OFFERED")
         st.write(
             """
             GRADUATE PROGRAMS
