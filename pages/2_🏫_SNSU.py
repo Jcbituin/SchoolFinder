@@ -5,7 +5,7 @@ from PIL import Image
 image1 = Image.open("image/A.png")
 image2 = Image.open("image/B.png")
 
-st.title("SURIGAO DEL NORTE UNIVERSITY SCHOOL")
+st.title("SURIGAO DEL NORTE STATE UNIVERSITY")
 
 with st.container():
     st.write("---")
