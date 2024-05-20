@@ -48,12 +48,62 @@ with st.container():
             """
         )
 with st.container():
-    st.write("---")
     with text_column:
         st.subheader("QUALITY POLICY")
         st.write(
             """
             Surigao del Norte State University provides quality instruction, research, extention programs, and production services to satisfy its customers by responding to their needs and expectations and continually improving its quality management system.
+            """
+        )
+with st.container():
+    with text_column:
+        st.subheader("PROGRAM AND COURSES OFFERED")
+        st.write(
+            """
+            UNDERGRADUATE PROGRAMS:
+            - BACHELOR OF SCIENCE IN CIVIL ENGINEERING (BSCE)
+            - BACHELOR OF SCIENCE IN ELECTRONICS ENGINEERING (BSECE) 
+            - BACHELOR OF SCIENCE IN ELECTRICAL ENGINEERING (BSEE)
+            - BACHELOR OF SOCIENCE IN COMPUTER ENGINEERING (BSCpE)
+            - Bachelor of Science in Information System (BSIS)
+            - Bachelor of Science in Information Technology (BSinfoTech)
+            - Bachelor of Science in Computer Science (BSCS)
+            
+            - BACHELOR IN AUTOMOTIVE ENGINEERING TECHNOLOGY (BAET)
+            - BACHELOR IN ELECTRICAL ENGINEERING TECHNOL0GY (BEET)
+            - BACHELOR IN ELECTRONICS ENGINEERING TECHNOLOGY (BEXET)
+            - BACHELOR IN MECHANICAL ENGINEERING TECHNOLOGY (BMET)
+            CONCENTRATION IN: 
+            - MECHANICAL TECHNOLOGY (BMET- MT)
+            - REFRIGERATION AND AIR-CONDITIONING TECHNOLoGY (BMET-RAC)
+            
+            Bachelor of Science in Industrial Technology (BSIT) Major in:
+            - Architectural Drafting Technology (BSIT-ADT)
+            - Automotive Technology (BSIT-AT)
+            - Electricol Technology (BSIT-ELT)
+            - Electronics Technology (BSIT-ELX)
+            - Mechanical Technology (BSIT-MT)
+            - Welding and Fabricotion Technology (BSIT-WAFT)
+            - Heating, Ventilation, Air-conditioning and Refrigeration (BSIT-HVACR)
+            
+            - Bachelor of science in Hospitality Manogement (BSHM)
+            - Bachelor of science in Tourism Management (BSTM)
+            
+            BACHELOR OF TECHNICAL- VOCATIONAL TEACHER EDUCATION (BTVTED) MAJOR:
+            - FOOD AND SERVICEs MANAGEMENT
+            
+            BACHELOR OF SECONDARY EDUCATION (BSED) MAJOR IN:
+            - ENGLISH
+            - FILIPINO
+            - MATHEMATICS
+            - SCIENCES
+            
+            - BACHELOR OF ELEMENTARY EDUCATION (BEED)
+            - Bachelor of Physical Education (BPED)
+            
+            - BACHELOR OF SCIENCE IN ENVIRONMENTAL SCIENCE (BSES)
+            - BACHELOR OF SCIENCE IN MATHEMATICS (BSMATH)
+            - BACHELOR OF ARTS IN ENGLISH LANGUAGE (AB-EL)
             """
         )
 
