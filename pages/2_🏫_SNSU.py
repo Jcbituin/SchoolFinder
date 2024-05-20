@@ -12,6 +12,8 @@ with st.container():
     image_column, text_column = st.columns((1, 2))
     with image_column:
         st.image(image1)
+        
+with st.container():
     with text_column:
         st.subheader("ABOUT SNSU")
         st.write(
@@ -21,9 +23,6 @@ with st.container():
         )        
 
 with st.container():
-    image_column, text_column = st.columns((1, 2))
-    with image_column:
-        st.image(image2)
     with text_column:
         st.subheader("MISSION")
         st.write(
