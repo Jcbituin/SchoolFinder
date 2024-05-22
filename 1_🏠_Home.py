@@ -7,28 +7,15 @@ class Stack:
         self.limit = limit
 
     def push(self, item):
-        if len(self.items) < self.limit:
-            self.items.append(item)
-        else:
+        self.items.append(item)
+        if len(self.items) > self.limit:
             self.items.pop(0)
-            self.items.append(item)
 
-    def pop(self):
-        if not self.is_empty():
-            return self.items.pop()
-
-    def peek(self):
-        if not self.is_empty():
-            return self.items[-1]
-
-    def is_empty(self):
-        return len(self.items) == 0
-
-    def size(self):
-        return len(self.items)
+    def display(self):
+        return reversed(self.items)
 
 # Create a stack instance for search history with a limit of 10
-search_history = Stack(limit=10)
+search_history = Stack()
 
 # ---- LOAD ASSETS ----
 image1 = Image.open("image/H.png")
@@ -283,6 +270,7 @@ if search_query:
 # Display search history
 if not search_history.is_empty():
     st.write("---")
-    st.subheader("Search History")
-    for item in reversed(search_history.items):  # Reverse to display latest search on top
+    st.subheader("Search History (LIFO)")
+    for item in search_history.display():  # Display in LIFO order
         st.write(item.title())
+
