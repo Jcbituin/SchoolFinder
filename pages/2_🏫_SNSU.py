@@ -13,7 +13,6 @@ with st.container():
         st.image(image1)
         
 with st.container():
-    with text_column:
         st.subheader("ABOUT SNSU")
         st.write(
             """
