@@ -3,7 +3,6 @@ import streamlit as st
 from PIL import Image
 
 image1 = Image.open("image/D.png")
-image2 = Image.open("image/F.png")
 
 st.title("NORTHEASTERN MINDANAO COLLEGES")
 
@@ -20,9 +19,6 @@ with st.container():
             """
         )        
 with st.container():
-    image_column, text_column = st.columns((1, 2))
-    with image_column:
-        st.image(image2)
     with text_column:
         st.subheader("MISSION")
         st.write(
