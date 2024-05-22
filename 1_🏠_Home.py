@@ -61,11 +61,9 @@ with st.container():
 # ---- SEARCH FUNCTIONALITY (Example) ----
 # Assume we have a list of schools
 schools = [
-    "Surigao City National High School",
-    "Northeastern Mindanao Colleges",
-    "St. Paul University Surigao",
-    "Surigao Education Center",
-    "Surigao State College of Technology",
+    "SURIGAO DEL NORTE STATE UNIVERSITY",
+    "NORTHEASTERN MINDANAO COLLEGE",
+    "ST. PAUL UNIVERSITY SURIGAO",
 ]
 
 # Filter the list of schools based on the search query
