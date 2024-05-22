@@ -1,6 +1,30 @@
 from PIL import Image
 import streamlit as st
 
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+
+    def peek(self):
+        if not self.is_empty():
+            return self.items[-1]
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def size(self):
+        return len(self.items)
+
+# Create a stack instance for search history
+search_history = Stack()
+
 # ---- LOAD ASSETS ----
 image1 = Image.open("image/H.png")
 
@@ -57,6 +81,10 @@ st.write("---")
 # Search bar implementation
 search_query = st.text_input("Search for a school", "")
 search_query = search_query.lower()
+
+# If search query is not empty, push it onto the search history stack
+if search_query:
+    search_history.push(search_query)
 
 # School list
 schools = {
@@ -227,6 +255,8 @@ schools = {
 }
 
 # Display search results
+
+# If search query is not empty and a school is found, display its details
 if search_query:
     if search_query in schools:
         school = schools[search_query]
@@ -242,3 +272,12 @@ if search_query:
                 st.write(school["programs"])
     else:
         st.write("School not found. Please try another search term.")
+
+# ---- Additional: Display search history ----
+
+# Display search history
+if not search_history.is_empty():
+    st.write("---")
+    st.subheader("Search History")
+    for item in reversed(search_history.items):  # Reverse to display latest search on top
+        st.write(item.title())
