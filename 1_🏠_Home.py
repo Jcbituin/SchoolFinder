@@ -1,28 +1,13 @@
 from PIL import Image
 import streamlit as st
 
-# Function to initialize a stack
-def create_stack():
-    return []
-
-# Function to push an item onto the stack
-def push(stack, item):
-    stack.append(item)
-
-# Function to pop an item from the stack
-def pop(stack):
-    if len(stack) == 0:
-        return None
-    else:
-        return stack.pop()
-
 # ---- LOAD ASSETS ----
 image1 = Image.open("image/H.png")
 
-# Initialize search history stack
-search_history = create_stack()
-
 st.title("SCHOOL FINDER HUB")
+
+# Create a list to store past searches
+past_searches = []
 
 # ---- HEADER SECTION ----
 with st.container():
@@ -38,46 +23,45 @@ with st.container():
             """
         )
 
+# ---- OBJECTIVES SECTION ----
 with st.container():
-    with text_column:
-        st.subheader("OBJECTIVES")
-        st.write(
-            """
-            The primary objectives of School Finder Hub are to:
-            1. Provide an accessible and user-friendly platform for researching educational institutions in Surigao City.
-            2. Offer detailed information on each school, including programs, courses, extracurricular activities, teacher qualifications, facilities, and curriculum.
-            3. Facilitate informed decision-making for parents, students, and educators.
-            """
-        )
+    st.subheader("OBJECTIVES")
+    st.write(
+        """
+        The primary objectives of School Finder Hub are to:
+        1. Provide an accessible and user-friendly platform for researching educational institutions in Surigao City.
+        2. Offer detailed information on each school, including programs, courses, extracurricular activities, teacher qualifications, facilities, and curriculum.
+        3. Facilitate informed decision-making for parents, students, and educators.
+        """
+    )
 
+# ---- MISSION SECTION ----
 with st.container():
-    with text_column:
-        st.subheader("MISSION")
-        st.write(
-            """
-            The mission of School Finder Hub is to bridge the gap between educational aspirations and opportunities in Surigao City by offering a centralized, informative platform that aids in the selection of the best educational paths for students.
-            """
-        )
+    st.subheader("MISSION")
+    st.write(
+        """
+        The mission of School Finder Hub is to bridge the gap between educational aspirations and opportunities in Surigao City by offering a centralized, informative platform that aids in the selection of the best educational paths for students.
+        """
+    )
 
+# ---- CORE VALUES SECTION ----
 with st.container():
-    st.write("---")
-    with text_column:
-        st.subheader("CORE VALUES")
-        st.write(
-            """
-            1. Comprehensiveness: Delivering detailed and wide-ranging information about educational institutions.
-            2. User-Centricity: Ensuring a smooth, intuitive user experience through thoughtful design and functionality.
-            3. Transparency: Providing clear, accurate, and up-to-date information about each school.
-            4. Empowerment: Enabling users to make well-informed decisions about their educational journeys.
-            5. Innovation: Continuously improving the platform using the latest technologies to enhance user experience and information accuracy.
-            """
-        )
-
+    st.subheader("CORE VALUES")
+    st.write(
+        """
+        1. Comprehensiveness: Delivering detailed and wide-ranging information about educational institutions.
+        2. User-Centricity: Ensuring a smooth, intuitive user experience through thoughtful design and functionality.
+        3. Transparency: Providing clear, accurate, and up-to-date information about each school.
+        4. Empowerment: Enabling users to make well-informed decisions about their educational journeys.
+        5. Innovation: Continuously improving the platform using the latest technologies to enhance user experience and information accuracy.
+        """
+    )
+st.write("---")
 # Search bar implementation
 search_query = st.text_input("Search for a school", "")
 search_query = search_query.lower()
 
-# School data
+# School list
 schools = {
     "surigao del norte state university": {
         "image": "image/A.png",
@@ -93,6 +77,43 @@ schools = {
         - Bachelor of Science in Information System (BSIS)
         - Bachelor of Science in Information Technology (BSinfoTech)
         - Bachelor of Science in Computer Science (BSCS)
+        
+        - BACHELOR IN AUTOMOTIVE ENGINEERING TECHNOLOGY (BAET)
+        - BACHELOR IN ELECTRICAL ENGINEERING TECHNOL0GY (BEET)
+        - BACHELOR IN ELECTRONICS ENGINEERING TECHNOLOGY (BEXET)
+        - BACHELOR IN MECHANICAL ENGINEERING TECHNOLOGY (BMET)
+        
+        CONCENTRATION IN: 
+        - MECHANICAL TECHNOLOGY (BMET- MT)
+        - REFRIGERATION AND AIR-CONDITIONING TECHNOLoGY (BMET-RAC)
+            
+        Bachelor of Science in Industrial Technology (BSIT) Major in:
+        - Architectural Drafting Technology (BSIT-ADT)
+        - Automotive Technology (BSIT-AT)
+        - Electricol Technology (BSIT-ELT)
+        - Electronics Technology (BSIT-ELX)
+        - Mechanical Technology (BSIT-MT)
+        - Welding and Fabricotion Technology (BSIT-WAFT)
+        - Heating, Ventilation, Air-conditioning and Refrigeration (BSIT-HVACR)
+            
+        - Bachelor of science in Hospitality Manogement (BSHM)
+        - Bachelor of science in Tourism Management (BSTM)
+            
+        BACHELOR OF TECHNICAL- VOCATIONAL TEACHER EDUCATION (BTVTED) MAJOR:
+        - FOOD AND SERVICEs MANAGEMENT
+            
+        BACHELOR OF SECONDARY EDUCATION (BSED) MAJOR IN:
+        - ENGLISH
+        - FILIPINO
+        - MATHEMATICS
+        - SCIENCES
+            
+        - BACHELOR OF ELEMENTARY EDUCATION (BEED)
+        - Bachelor of Physical Education (BPED)
+            
+        - BACHELOR OF SCIENCE IN ENVIRONMENTAL SCIENCE (BSES)
+        - BACHELOR OF SCIENCE IN MATHEMATICS (BSMATH)
+        - BACHELOR OF ARTS IN ENGLISH LANGUAGE (AB-EL)
         ...
         """
     },
@@ -113,8 +134,24 @@ schools = {
         - Master of Public Administration (MPA)
         - Master of Science in Nursing (MSN)
         - Master of Arts in Nursing(MAN)
-        ...
-        """
+        - Master of Arts
+        Major: Science Teaching, Mathematics Teaching, English, Filipino, Home Economics
+        - Master of Arts in Cultural Education (MACulEd)
+        - Master of Arts in Curriculum Development and Design (MA-CDD)
+        - Master of Arts in Educational Management (MAEM)
+            
+        UNDERGRADUATE PROGRAMS
+            
+        COLLEGE OF CULTURE, EDUCATION AND ARTS
+        - Bachelor of Arts
+            
+        Major: Political Sience, Philosophy, English Language, Sociology, Mass Communication
+        - Bachelor of Library and Information Science.
+        - Bachelor of Library and Information Science
+        - Bachelor of Science in Mathematics
+        - Bachelor of Science in Public Administration
+        - Bachelor of Elementary Education
+        - Bachelor of""",
     },
     "northeastern mindanao colleges": {
         "image": "image/D.png",
@@ -135,6 +172,7 @@ schools = {
 
 # Display search results
 if search_query:
+    past_searches.append(search_query)
     if search_query in schools:
         school = schools[search_query]
         with st.container():
@@ -147,15 +185,13 @@ if search_query:
                 st.write(school["description"])
                 st.subheader("Programs and Courses Offered")
                 st.write(school["programs"])
-        
-        # Add search query to the search history stack
-        push(search_history, search_query)
     else:
         st.write("School not found. Please try another search term.")
 
-# Display search history
-if search_history:
-    st.write("---")
-    st.subheader("Search History:")
-    for query in reversed(search_history):
-        st.write(query)
+# Display past searches
+st.subheader("Past Searches")
+if past_searches:
+    for search in past_searches:
+        st.write(search.title())
+else:
+    st.write("No past searches yet.")
