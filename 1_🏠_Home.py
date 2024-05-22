@@ -43,7 +43,6 @@ with st.container():
 
 # ---- CORE VALUES SECTION ----
 with st.container():
-    st.write("---")
     st.subheader("CORE VALUES")
     st.write(
         """
@@ -54,7 +53,7 @@ with st.container():
         5. Innovation: Continuously improving the platform using the latest technologies to enhance user experience and information accuracy.
         """
     )
-
+st.write("---")
 # Search bar implementation
 search_query = st.text_input("Search for a school", "")
 search_query = search_query.lower()
