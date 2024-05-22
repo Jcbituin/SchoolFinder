@@ -265,7 +265,7 @@ if search_query:
     else:
         st.write("School not found. Please try another search term.")
 
-# Display search history
+# Display all search history
 if search_history.items:
     st.write("---")
     st.subheader("Search History")
