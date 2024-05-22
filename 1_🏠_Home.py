@@ -6,9 +6,6 @@ image1 = Image.open("image/H.png")
 
 st.title("SCHOOL FINDER HUB")
 
-# Create a list to store past searches
-past_searches = []
-
 # ---- HEADER SECTION ----
 with st.container():
     st.write("---")
@@ -151,7 +148,66 @@ schools = {
         - Bachelor of Science in Mathematics
         - Bachelor of Science in Public Administration
         - Bachelor of Elementary Education
-        - Bachelor of""",
+        - Bachelor of Secondary Education Major in English
+        - Bachelor of Secondary Education Major in Filipino
+        - Bachelor of Secondary Education Major in Mathematics
+        - Bachelor of Secondary Education Major in Sciences
+        - Bachelor of Secondary Education Major in Social Studies
+        - Bachelor of Secondary Education Major in Values Education
+        - Bachelor of Early Childhood Education
+        - Bachelor of Early Physical Education
+            
+        COLLEGE OF BUSINESS AND TECHNOLOGY
+        - Bachelor of Science in Accountancy
+        - Bachelor of Science in Business Administration
+            
+        Major: Financial Management, Marketing Management, Human Resource Development Management
+        - Bachelor of Science in Hospitality Management
+        - Bachelor of Science in Office Administration
+        - Bachelor of Science in Tourism Management
+        - Bachelor of Science in Accounting and Information System
+        - Bachelor of Science in Computer Science
+        - Bachelor of Science in Information Technology
+            
+        COLLEGE OF ENGINEERING
+        - Bachelor of Science in Civil Engineering
+        - Bachelor of Science in Computer Engineering
+        - Bachelor of Science in Mining Engineering
+            
+        COLLEGE OF HEALTH SCIENCES
+        - Bachelor of Science in Nursing
+        - Bachelor of Science in Psychology
+            
+        COLLEGE OF CRIMINAL JUSTICE EDUCATION
+        - Bachelor of Science in Criminology
+        - Bachelor of Science in Forensic Science
+            
+        COLLEGE OF TEACHER EDUCATION
+        - Bachelor in Elementary Education
+        - Bachelor in Secondary Education
+        - Major: English
+        - Filipino
+        - Science
+        - Mathematics
+        - Biological Home Economics
+        - Business Technology
+        - Physical Science
+        - Social Studies
+        - PE., Health and Music
+        - Library and Info Science
+            
+        BASIC EDUCATION
+        - Senior High School (Complete K-12 Curriculum)
+        - Junior High School
+        - Grade School
+            
+        TESDA PROGRAMS
+        - Computer Systems Servicing NCI
+        - Food and Beverage Servicing NCII
+        - Housekeeping NCII
+        - Bookkeeping NCl
+        ...
+        """
     },
     "northeastern mindanao colleges": {
         "image": "image/D.png",
@@ -172,7 +228,6 @@ schools = {
 
 # Display search results
 if search_query:
-    past_searches.append(search_query)
     if search_query in schools:
         school = schools[search_query]
         with st.container():
@@ -187,11 +242,3 @@ if search_query:
                 st.write(school["programs"])
     else:
         st.write("School not found. Please try another search term.")
-
-# Display past searches
-st.subheader("Past Searches")
-if past_searches:
-    for search in past_searches:
-        st.write(search.title())
-else:
-    st.write("No past searches yet.")
