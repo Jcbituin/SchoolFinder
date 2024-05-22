@@ -11,8 +11,8 @@ class Stack:
         if len(self.items) > self.limit:
             self.items.pop(0)
 
-    def display(self):
-        return reversed(self.items)
+    def clear(self):
+        self.items.clear()
 
 # Create a stack instance for search history with a limit of 10
 search_history = Stack()
@@ -77,6 +77,10 @@ search_query = search_query.lower()
 # If search query is not empty, push it onto the search history stack
 if search_query:
     search_history.push(search_query)
+
+# Clear search history if requested
+if st.button("Clear Search History"):
+    search_history.clear()
 
 # School list
 schools = {
@@ -268,9 +272,8 @@ if search_query:
 # ---- Additional: Display search history ----
 
 # Display search history
-if not search_history.is_empty():
+if search_history.items:
     st.write("---")
-    st.subheader("Search History (LIFO)")
-    for item in search_history.display():  # Display in LIFO order
+    st.subheader("Search History (Most recent at the top)")
+    for item in reversed(search_history.items):  # Display in reversed order
         st.write(item.title())
-
