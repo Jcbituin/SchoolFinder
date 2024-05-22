@@ -1,14 +1,13 @@
+
+Milvi
+Milvi Adajar
 from PIL import Image
 import streamlit as st
-from collections import deque
 
 # ---- LOAD ASSETS ----
 image1 = Image.open("image/H.png")
 
 st.title("SCHOOL FINDER HUB")
-
-# Search bar implementation at the top of the header
-search_query = st.text_input("Search for a school", "")
 
 # ---- HEADER SECTION ----
 with st.container():
@@ -56,10 +55,13 @@ with st.container():
             """
         )
 
-# Lists
-schools = [
-    {
-        "name": "surigao del norte state university",
+# Search bar implementation
+search_query = st.text_input("Search for a school", "")
+search_query = search_query.lower()
+
+# School data
+schools = {
+    "surigao del norte state university": {
         "image": "image/A.png",
         "description": """
         The Surigao del Norte State University is a public university in the Philippines. It is mandated to provide advanced education, higher technological, professional instruction and training in the fields of agriculture and environmental studies, fishery, engineering, forestry, industrial technology, education, law, medicine and other health-related programs, information technology, arts and sciences and other related courses.
@@ -68,27 +70,35 @@ schools = [
         UNDERGRADUATE PROGRAMS:
         - BACHELOR OF SCIENCE IN CIVIL ENGINEERING (BSCE)
         - BACHELOR OF SCIENCE IN ELECTRONICS ENGINEERING (BSECE)
+        - BACHELOR OF SCIENCE IN ELECTRICAL ENGINEERING (BSEE)
+        - BACHELOR OF SCIENCE IN COMPUTER ENGINEERING (BSCpE)
+        - Bachelor of Science in Information System (BSIS)
+        - Bachelor of Science in Information Technology (BSinfoTech)
+        - Bachelor of Science in Computer Science (BSCS)
         ...
         """
     },
-    {
-        "name": "st. paul university surigao",
+    "st. paul university surigao": {
         "image": "image/C.png",
         "description": """
         St. Paul University Surigao provides quality, Catholic Paulinian education that is customer-focused in a culture of compassionate caring through
         - involvement at all levels
         - upgrading of human resources and facilities
-        ...
+        - commitment to continual improvement
         """,
         "programs": """
         GRADUATE PROGRAMS
         Doctor of Philosophy
         - Major : Educational Management
+        Doctor of Philosophy in Business and Management
+        - Master of Business Administration (MBA)
+        - Master of Public Administration (MPA)
+        - Master of Science in Nursing (MSN)
+        - Master of Arts in Nursing(MAN)
         ...
         """
     },
-    {
-        "name": "northeastern mindanao colleges",
+    "northeastern mindanao colleges": {
         "image": "image/D.png",
         "description": """
         Northeastern Mindanao Colleges (NEMCO) is a private non-sectarian school in Surigao City. It was established in 1947 with tertiary programs and short courses, including Civil Service Review classes. The institution opened a complete high school department the following year.
@@ -96,47 +106,28 @@ schools = [
         "programs": """
         - Bachelor of Secondary Education Major in English
         - Bachelor of Elementary Education
-        ...
+        - Bachelor of Business Administration - Marketing Management
+        - Bachelor of Business Administration - Financial Management
+        - Bachelor of Information Technology Associate in Computer Technology
+        - Bachelor of Criminology
+        - Bachelor of Arts and Sciences
         """
     }
-]
+}
 
-# Stack (for visited schools)
-visited_schools_stack = []
-
-# Implementing a deque for search history (Queue)
-search_history = deque(maxlen=10)
-
-# Search functionality
+# Display search results
 if search_query:
-    found_school = None
-    for school in schools:
-        if search_query.lower() == school["name"]:
-            found_school = school
-            break
-    
-    if found_school:
-        search_history.append(search_query)
-        visited_schools_stack.append(found_school["name"])  # Adding to the stack of visited schools
+    if search_query in schools:
+        school = schools[search_query]
         with st.container():
             st.write("---")
             image_column, text_column = st.columns((1, 2))
             with image_column:
-                st.image(found_school["image"])
+                st.image(school["image"])
             with text_column:
-                st.subheader(found_school["name"].title())
-                st.write(found_school["description"])
+                st.subheader(search_query.title())
+                st.write(school["description"])
                 st.subheader("Programs and Courses Offered")
-                st.write(found_school["programs"])
+                st.write(school["programs"])
     else:
         st.write("School not found. Please try another search term.")
-
-# Display search history (Queue)
-if search_history:
-    st.write("### Search History (Queue)")
-    st.write(list(search_history))
-
-# Display visited schools (Stack)
-if visited_schools_stack:
-    st.write("### Visited Schools (Stack)")
-    st.write(visited_schools_stack)
