@@ -1,5 +1,6 @@
 from PIL import Image
 import streamlit as st
+from collections import deque
 
 # ---- LOAD ASSETS ----
 image1 = Image.open("image/H.png")
@@ -52,13 +53,13 @@ with st.container():
             """
         )
 
-# Search bar implementation
-search_query = st.text_input("Search for a school", "")
-search_query = search_query.lower()
+# Initialize a deque for search history (Queue)
+search_history = deque(maxlen=10)
 
-# School data
-schools = {
-    "surigao del norte state university": {
+# School data (List of dictionaries)
+schools = [
+    {
+        "name": "surigao del norte state university",
         "image": "image/A.png",
         "description": """
         The Surigao del Norte State University is a public university in the Philippines. It is mandated to provide advanced education, higher technological, professional instruction and training in the fields of agriculture and environmental studies, fishery, engineering, forestry, industrial technology, education, law, medicine and other health-related programs, information technology, arts and sciences and other related courses.
@@ -75,7 +76,8 @@ schools = {
         ...
         """
     },
-    "st. paul university surigao": {
+    {
+        "name": "st. paul university surigao",
         "image": "image/C.png",
         "description": """
         St. Paul University Surigao provides quality, Catholic Paulinian education that is customer-focused in a culture of compassionate caring through
@@ -95,7 +97,8 @@ schools = {
         ...
         """
     },
-    "northeastern mindanao colleges": {
+    {
+        "name": "northeastern mindanao colleges",
         "image": "image/D.png",
         "description": """
         Northeastern Mindanao Colleges (NEMCO) is a private non-sectarian school in Surigao City. It was established in 1947 with tertiary programs and short courses, including Civil Service Review classes. The institution opened a complete high school department the following year.
@@ -110,21 +113,44 @@ schools = {
         - Bachelor of Arts and Sciences
         """
     }
-}
+]
+
+# Implementing a stack for the visited schools
+visited_schools_stack = []
+
+# Search bar implementation
+search_query = st.text_input("Search for a school", "")
+search_query_lower = search_query.lower()
 
 # Display search results
 if search_query:
-    if search_query in schools:
-        school = schools[search_query]
+    found_school = None
+    for school in schools:
+        if search_query_lower == school["name"]:
+            found_school = school
+            break
+    
+    if found_school:
+        search_history.append(search_query)
+        visited_schools_stack.append(found_school["name"])
         with st.container():
             st.write("---")
             image_column, text_column = st.columns((1, 2))
             with image_column:
-                st.image(school["image"])
+                st.image(found_school["image"])
             with text_column:
-                st.subheader(search_query.title())
-                st.write(school["description"])
+                st.subheader(found_school["name"].title())
+                st.write(found_school["description"])
                 st.subheader("Programs and Courses Offered")
-                st.write(school["programs"])
+                st.write(found_school["programs"])
     else:
         st.write("School not found. Please try another search term.")
+
+# Display search history and visited schools
+if search_history:
+    st.write("### Search History (Queue)")
+    st.write(list(search_history))
+
+if visited_schools_stack:
+    st.write("### Visited Schools (Stack)")
+    st.write(visited_schools_stack)
