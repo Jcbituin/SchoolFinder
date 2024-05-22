@@ -2,11 +2,16 @@ from PIL import Image
 import streamlit as st
 
 class Stack:
-    def __init__(self):
+    def __init__(self, limit=10):
         self.items = []
+        self.limit = limit
 
     def push(self, item):
-        self.items.append(item)
+        if len(self.items) < self.limit:
+            self.items.append(item)
+        else:
+            self.items.pop(0)
+            self.items.append(item)
 
     def pop(self):
         if not self.is_empty():
@@ -22,8 +27,8 @@ class Stack:
     def size(self):
         return len(self.items)
 
-# Create a stack instance for search history
-search_history = Stack()
+# Create a stack instance for search history with a limit of 10
+search_history = Stack(limit=10)
 
 # ---- LOAD ASSETS ----
 image1 = Image.open("image/H.png")
