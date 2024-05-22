@@ -17,7 +17,9 @@ with st.container():
             """
             Northeastern Mindanao Colleges (NEMCO) is a private non-sectarian school in Surigao City. It was established in 1947 with tertiary programs and short courses, including Civil Service Review classes. The institution opened a complete high school department the following year.
             """
-        )        
+        )   
+
+# ---- MISSION SECTION ----
 with st.container():
     with text_column:
         st.subheader("MISSION")
@@ -25,15 +27,19 @@ with st.container():
             """
             A transformative academic institution bridging academe with industry committed to produce competent technical graduates, socially responsible professionals and value-laden lifelong learners with a competitive advantage.
             """
-        )        
+        )  
+
+# ---- VISSION SECTION ----
 with st.container():
     with text_column:
-        st.subheader("VISION")
+        st.subheader("VISSION")
         st.write(
             """
             To produce and train dynamic, competent and creative graduates with relevant actual learning experience constantly translating knowledge, skills, and behavior using innovative methods and ideas responsive to the needs of the industry and the community.
             """
         )
+
+# ---- OBJECTIVES SECTION ----
 with st.container():
     with text_column:
         st.subheader("OBJECTIVES")
@@ -48,6 +54,8 @@ with st.container():
             6. strengthen and expand partnership with stakeholders, which are sustainable,efficient, and effective in meeting the needs of the institution and the community.
             """
         )
+
+# ---- PROGRAMS SECTION ----
 with st.container():
     st.write("---")
     with text_column:
