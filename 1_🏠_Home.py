@@ -54,7 +54,7 @@ with st.container():
 
 # Search bar implementation
 search_query = st.text_input("Search for a school", "")
-search_query = search_query.lower()
+search_query = search_query.upper()
 
 # School data
 schools = {
