@@ -11,9 +11,6 @@ class Stack:
         if len(self.items) > self.limit:
             self.items.pop(0)
 
-    def clear(self):
-        self.items.clear()
-
 # Create a stack instance for search history with a limit of 10
 search_history = Stack()
 
@@ -77,10 +74,6 @@ search_query = search_query.lower()
 # If search query is not empty, push it onto the search history stack
 if search_query:
     search_history.push(search_query)
-
-# Clear search history if requested
-if st.button("Clear Search History"):
-    search_history.clear()
 
 # School list
 schools = {
@@ -269,7 +262,9 @@ if search_query:
     else:
         st.write("School not found. Please try another search term.")
 
-# ---- Additional: Display search history ----
+# Clear search history if requested
+if st.button("Clear Search History"):
+    search_history.items.clear()
 
 # Display search history
 if search_history.items:
