@@ -8,7 +8,7 @@ st.title("SURIGAO DEL NORTE STATE UNIVERSITY")
 
 with st.container():
     st.write("---")
-    image_column, text_column = st.columns((5))
+    image_column, text_column = st.columns((5,1))
     with image_column:
         st.image(image1)
         
