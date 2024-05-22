@@ -1,6 +1,16 @@
 from PIL import Image
 import streamlit as st
 
+# Stack for search history
+search_history = []
+
+# Function to display search history
+def display_search_history(history):
+    if history:
+        st.subheader("Search History")
+        for item in history[::-1]:  # Display in reverse order
+            st.write(item)
+
 # ---- LOAD ASSETS ----
 image1 = Image.open("image/H.png")
 
@@ -240,5 +250,8 @@ if search_query:
                 st.write(school["description"])
                 st.subheader("Programs and Courses Offered")
                 st.write(school["programs"])
+        # Add search query to the search history
+        search_history.append(search_query)
+        display_search_history(search_history)
     else:
         st.write("School not found. Please try another search term.")
