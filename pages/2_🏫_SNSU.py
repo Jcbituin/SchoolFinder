@@ -2,17 +2,21 @@ import requests
 import streamlit as st
 from PIL import Image
 
-image1 = Image.open("image/B.png")
+
 
 st.title("SURIGAO DEL NORTE STATE UNIVERSITY")
 
+import streamlit as st
+
+image1 = Image.open("image/B.png")
 with st.container():
     st.write("---")
-    image_column, text_column = st.columns((1,2))
+    image_column, text_column = st.columns((5,5))
     with image_column:
         st.image(image1)
         
 with st.container():
+    with text_column:
         st.subheader("ABOUT SNSU")
         st.write(
             """
