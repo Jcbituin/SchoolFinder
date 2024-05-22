@@ -54,9 +54,9 @@ with st.container():
 
 # Search bar implementation
 search_query = st.text_input("Search for a school", "")
-search_query = search_query.upper()
+search_query = search_query.lower()
 
-# School data
+# School list
 schools = {
     "surigao del norte state university": {
         "image": "image/A.png",
