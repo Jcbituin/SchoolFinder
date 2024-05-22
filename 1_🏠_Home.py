@@ -269,6 +269,6 @@ if st.button("Clear Search History"):
 # Display search history
 if search_history.items:
     st.write("---")
-    st.subheader("Search History (Most recent at the top)")
+    st.subheader("Search History")
     for item in reversed(search_history.items):  # Display in reversed order
         st.write(item.title())
