@@ -2,7 +2,7 @@ from PIL import Image
 import streamlit as st
 
 class Stack:
-    def __init__(self, limit=10):
+    def __init__(self, limit=5):
         self.items = []
         self.limit = limit
 
@@ -11,7 +11,7 @@ class Stack:
         if len(self.items) > self.limit:
             self.items.pop(0)
 
-# Create a stack instance for search history with a limit of 10
+# Create a stack instance for search history with a limit of 5
 search_history = Stack()
 
 # ---- LOAD ASSETS ----
@@ -262,13 +262,13 @@ if search_query:
     else:
         st.write("School not found. Please try another search term.")
 
-# Clear search history if requested
-if st.button("Clear Search History"):
+# Clear search history if requested after 5 searches
+if len(search_history.items) >= 5:
     search_history.items.clear()
 
 # Display search history
 if search_history.items:
     st.write("---")
-    st.subheader("Search History")
+    st.subheader("Search History (Most recent at the top)")
     for item in reversed(search_history.items):  # Display in reversed order
         st.write(item.title())
