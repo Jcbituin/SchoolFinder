@@ -11,6 +11,9 @@ class Stack:
         if len(self.items) > self.limit:
             self.items.pop(0)
 
+    def clear(self):
+        self.items = []
+
 # Initialize a stack for storing search history
 search_history = Stack()
 
@@ -268,3 +271,7 @@ if search_history.items:
     st.subheader("Search History")
     for item in reversed(search_history.items):  # Display in reversed order
         st.write(item.title())
+
+# Clear search history
+if st.button("Clear History"):
+    search_history.clear()
