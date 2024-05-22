@@ -2,7 +2,6 @@ from PIL import Image
 import streamlit as st
 
 image1 = Image.open("image/C.png")
-image2 = Image.open("image/E.png")
 
 st.title("ST. PAUL UNIVERSITY SURIGAO")
 
@@ -22,9 +21,6 @@ with st.container():
             """
         )        
 with st.container():
-    image_column, text_column = st.columns((1, 2))
-    with image_column:
-        st.image(image2)
     with text_column:
         st.subheader("MISSION")
         st.write(
