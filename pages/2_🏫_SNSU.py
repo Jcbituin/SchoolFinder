@@ -2,7 +2,7 @@ import requests
 import streamlit as st
 from PIL import Image
 
-image1 = Image.open("image/B.png")
+image1 = Image.open("image/A.png")
 
 st.title("SURIGAO DEL NORTE STATE UNIVERSITY")
 
